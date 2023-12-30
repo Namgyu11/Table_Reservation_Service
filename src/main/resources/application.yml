@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc
+    username: root
+    password: s5554549
+
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+    database: mysql
+
+  jwt:
+    header: Authorization
+    prefix: Bearer
+    secret: ReservationStore0123456789
+    token-valid-time: 3600000   #1시간(second 변환)
