@@ -12,14 +12,4 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
     private final CustomerService customerService;
 
-    @PostMapping("/register/customer")
-    public ResponseEntity<?> register(@RequestBody RegisterCustomer request) {
-        return ResponseEntity.ok().body(
-                request.from(this.customerService.register(request)));
-    }
-    @GetMapping("/customer/info")
-    @PreAuthorize("hasAnyRole('CUSTOMER', 'PARTNER')")
-    public ResponseEntity<?> getCustomerInfo(@RequestParam("id") Long id) {
-        return ResponseEntity.ok(this.customerService.memberDetail(id));
-    }
 }
