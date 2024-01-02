@@ -1,5 +1,6 @@
 package com.example.table_reservation_service.auth.service;
 
+import com.example.table_reservation_service.auth.dto.LoginInput;
 import com.example.table_reservation_service.auth.type.MemberType;
 import com.example.table_reservation_service.customer.entity.Customer;
 import com.example.table_reservation_service.customer.repository.CustomerRepository;
@@ -57,15 +58,44 @@ public class AuthService implements UserDetailsService {
                 .build();
     }
 
-    //일반 회원 등록 이메일 확인
+    /**
+     * 일반 회원 등록 이메일 확인
+     */
+
     private Customer checkUserEmail(String email) {
         return this.customerRepository.findByEmail(email)
                 .orElseThrow(() -> new GlobalException(ErrorCode.USER_NOT_FOUND));
     }
 
-    //매장 매니저 회원 등록 이메일 확인
+    /**
+     * 일반 회원 등록 이메일 확인
+     */
     private Manager checkManager(String email) {
         return this.managerRepository.findByEmail(email)
                 .orElseThrow(() -> new GlobalException(ErrorCode.MANAGER_NOT_FOUND));
+    }
+
+
+    /**
+     * 일반 회원 인증, 패스워드 매칭
+     */
+    public Customer authenticateCustomer(LoginInput input) {
+        Customer customer = checkUserEmail(input.getEmail());
+        if (!this.passwordEncoder.matches(input.getPassword(), customer.getPassword())) {
+            throw new GlobalException(ErrorCode.PASSWORD_NOT_MATCH);
+        }
+        return customer;
+    }
+
+
+    /**
+     * 매장 매니저 회원 인증, 패스워드 매칭
+     */
+    public Manager authenticateManager(LoginInput input) {
+        Manager manager = checkManager(input.getEmail());
+        if (!this.passwordEncoder.matches(input.getPassword(), manager.getPassword())) {
+            throw new GlobalException(ErrorCode.PASSWORD_NOT_MATCH);
+        }
+        return manager;
     }
 }
