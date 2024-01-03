@@ -1,11 +1,17 @@
 package com.example.table_reservation_service.customer.service;
 
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import com.example.table_reservation_service.customer.dto.CustomerDto;
+import com.example.table_reservation_service.customer.dto.RegisterCustomer;
 
-@Slf4j
-@AllArgsConstructor
-@Service
-public class CustomerService {
+public interface CustomerService {
+
+    /**
+     * 회원 가입
+     */
+    CustomerDto register(RegisterCustomer registerCustomer);
+
+    /**
+     * 유저 일치 확인
+     */
+    CustomerDto memberDetail(Long userId);
 }

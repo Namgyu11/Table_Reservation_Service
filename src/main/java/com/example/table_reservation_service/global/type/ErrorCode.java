@@ -11,7 +11,9 @@ public enum ErrorCode {
     //user error(소비자(일반), 매장 매니저 회원)
     USER_NOT_FOUND(HttpStatus.BAD_REQUEST.value(),"이메일에 해당되는 사용자가 없습니다."),
     MANAGER_NOT_FOUND(HttpStatus.BAD_REQUEST.value(),"이메일에 해당되는 매니저가 없습니다."),
-    PASSWORD_NOT_MATCH(HttpStatus.BAD_REQUEST.value(),"비밀번호가 일치하지 않습니다");
+    PASSWORD_NOT_MATCH(HttpStatus.BAD_REQUEST.value(),"비밀번호가 일치하지 않습니다"),
+    ALREADY_REGISTERED_USER(HttpStatus.BAD_REQUEST.value(),"이미 가입된 회원입니다.")
+    ;
 
 
 

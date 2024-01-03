@@ -31,13 +31,12 @@ public class TokenProvider {
     @Value("${spring.jwt.secret}")
     private String secretKey;
 
-    /**
-     * 토큰 생성
-     *
-     * @param userEmail  회원 이메일
-     * @param memberType 회원 구분
-     * @return jwt 생성
-     */
+    public String generateToken(String email, MemberType memberType){
+        SecretKey ket
+    }
 
-
+    private SecretKey getSecretKey(){
+        return new SecretKeySpec(Base64.getDecoder().decode(this.secretKey),
+                "HmacSHA256");
+    }
 }
