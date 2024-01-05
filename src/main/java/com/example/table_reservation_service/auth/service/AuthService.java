@@ -81,6 +81,7 @@ public class AuthService implements UserDetailsService {
      */
     public Customer authenticateCustomer(LoginInput input) {
         Customer customer = checkUserEmail(input.getEmail());
+
         if (!this.passwordEncoder.matches(input.getPassword(), customer.getPassword())) {
             throw new GlobalException(ErrorCode.PASSWORD_NOT_MATCH);
         }
@@ -93,6 +94,7 @@ public class AuthService implements UserDetailsService {
      */
     public Manager authenticateManager(LoginInput input) {
         Manager manager = checkManager(input.getEmail());
+
         if (!this.passwordEncoder.matches(input.getPassword(), manager.getPassword())) {
             throw new GlobalException(ErrorCode.PASSWORD_NOT_MATCH);
         }
