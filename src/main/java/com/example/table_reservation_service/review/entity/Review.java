@@ -17,11 +17,31 @@ import javax.validation.constraints.Digits;
 @Entity
 public class Review extends BaseEntity {
     /**
-     *  리뷰 고유 ID
+     * 리뷰 고유 ID
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    /**
+     * 매장 ID
+     */
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
+
+    /**
+     * 일반 회원 ID
+     */
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    /**
+     * 예약 ID
+     */
+    @ManyToOne
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
 
     /**
      * 리뷰 내용
@@ -36,24 +56,5 @@ public class Review extends BaseEntity {
     @Digits(integer = 1, fraction = 1)
     private double rating;
 
-    /**
-     *  매장 ID
-     */
-    @ManyToOne
-    @JoinColumn(name = "store_id")
-    private Store store;
 
-    /**
-     *  일반 회원 ID
-     */
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-
-    /**
-     *  예약 ID
-     */
-    @ManyToOne
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
 }

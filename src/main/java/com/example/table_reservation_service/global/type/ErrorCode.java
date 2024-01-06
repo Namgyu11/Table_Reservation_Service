@@ -19,6 +19,9 @@ public enum ErrorCode {
 
 
     //store error
+    ALREADY_EXIST_STORE(HttpStatus.BAD_REQUEST.value(), "이미 사용 중인 매장 이름입니다."),
+    STORE_NOT_FOUND(HttpStatus.BAD_REQUEST.value(), "해당 매장을 찾을 수 없습니다."),
+    STORE_NOT_MATCH_MANAGER(HttpStatus.BAD_REQUEST.value(), "해당 매장의 매니저가 아닙니다."),
 
     //reservation error
 
