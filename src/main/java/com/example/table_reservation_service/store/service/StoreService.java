@@ -1,9 +1,12 @@
 package com.example.table_reservation_service.store.service;
 
 
-import com.example.table_reservation_service.store.dto.CreatStore;
+import com.example.table_reservation_service.store.dto.CreateStore;
 import com.example.table_reservation_service.store.dto.StoreDto;
 import com.example.table_reservation_service.store.dto.UpdateStore;
+import com.example.table_reservation_service.store.entity.Store;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -12,7 +15,7 @@ public interface StoreService  {
     /**
      * 매장 등록
      */
-    public StoreDto creatStore(CreatStore.Request request);
+    public StoreDto createStore(CreateStore.Request request);
 
     /**
      * 매장 수정

@@ -1,16 +1,17 @@
 package com.example.table_reservation_service.store.service;
 
 import com.example.table_reservation_service.global.exception.GlobalException;
-import com.example.table_reservation_service.global.type.ErrorCode;
 import com.example.table_reservation_service.manager.entity.Manager;
 import com.example.table_reservation_service.manager.repository.ManagerRepository;
-import com.example.table_reservation_service.store.dto.CreatStore;
+import com.example.table_reservation_service.store.dto.CreateStore;
 import com.example.table_reservation_service.store.dto.StoreDto;
 import com.example.table_reservation_service.store.dto.UpdateStore;
 import com.example.table_reservation_service.store.entity.Store;
 import com.example.table_reservation_service.store.repository.StoreRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +35,7 @@ public class StoreServiceImpl implements StoreService {
      */
     @Override
     @Transactional
-    public StoreDto creatStore(CreatStore.Request request) {
+    public StoreDto createStore(CreateStore.Request request) {
         log.info("==== 매장 생성 =====");
 
         // 매니저 ID 찾기
@@ -130,15 +131,13 @@ public class StoreServiceImpl implements StoreService {
     public List<StoreDto> searchStoreList() {
         log.info("==== 매장 리스트 확인 =====");
 
-        List<Store> storeList = this.storeRepository.findAll();
-
-        if(storeList.isEmpty()){
+        List<Store> stores = this.storeRepository.findAll();
+        if(stores.isEmpty()){
             throw new GlobalException(STORE_NOT_FOUND);
         }
         log.info("==== 매장 리스트 확인 완료=====");
 
-
-        return storeList.stream().map(StoreDto::searchStore).collect(Collectors.toList());
+        return stores.stream().map(StoreDto::searchStore).collect(Collectors.toList());
     }
 
     private Store checkStoreName(String name) {

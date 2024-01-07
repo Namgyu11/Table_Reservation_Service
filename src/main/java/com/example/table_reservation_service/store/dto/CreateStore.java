@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 
-public class CreatStore {
+public class CreateStore {
 
     @Data
     @AllArgsConstructor
@@ -46,7 +46,7 @@ public class CreatStore {
     public static class Response{
         private String storeName;
 
-        public static Response from(StoreDto storeDto){
+        public static Response fromDto(StoreDto storeDto){
             return Response.builder()
                     .storeName(storeDto.getStoreName())
                     .build();
