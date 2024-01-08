@@ -7,9 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ArrivalStatus {
-    READY("대기 상태"),
-    ARRIVED("도착 완료"),
-    NO_SHOW("NO SHOW 상태");
-
+    BEFORE_ARRIVAL("도착 전"),
+    ARRIVED("도착 완료");
     private final String description;
 }

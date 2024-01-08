@@ -9,6 +9,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -59,7 +60,7 @@ public class Reservation extends BaseEntity {
     /**
      * 매장 예약 시간
      */
-    private LocalDate reservationTime;
+    private LocalTime reservationTime;
 
 
 }

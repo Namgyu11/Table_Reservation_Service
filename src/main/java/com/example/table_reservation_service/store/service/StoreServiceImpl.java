@@ -5,6 +5,7 @@ import com.example.table_reservation_service.manager.entity.Manager;
 import com.example.table_reservation_service.manager.repository.ManagerRepository;
 import com.example.table_reservation_service.store.dto.CreateStore;
 import com.example.table_reservation_service.store.dto.StoreDto;
+import com.example.table_reservation_service.store.dto.StoreList;
 import com.example.table_reservation_service.store.dto.UpdateStore;
 import com.example.table_reservation_service.store.entity.Store;
 import com.example.table_reservation_service.store.repository.StoreRepository;
@@ -124,11 +125,11 @@ public class StoreServiceImpl implements StoreService {
     }
 
     /**
-     * 매장 검색
+     * 매장 검색 (매니저 ID는 제외하고 나머지 Store 정보를 보내기 위해 StoreList 사용)
      * @return 매장 리스트
      */
     @Override
-    public List<StoreDto> searchStoreList() {
+    public List<StoreList> searchStoreList() {
         log.info("==== 매장 리스트 확인 =====");
 
         List<Store> stores = this.storeRepository.findAll();
@@ -137,7 +138,7 @@ public class StoreServiceImpl implements StoreService {
         }
         log.info("==== 매장 리스트 확인 완료=====");
 
-        return stores.stream().map(StoreDto::searchStore).collect(Collectors.toList());
+        return stores.stream().map(StoreList::searchStore).collect(Collectors.toList());
     }
 
     private Store checkStoreName(String name) {

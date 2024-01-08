@@ -24,6 +24,12 @@ public enum ErrorCode {
     STORE_NOT_MATCH_MANAGER(HttpStatus.BAD_REQUEST.value(), "해당 매장의 매니저가 아닙니다."),
 
     //reservation error
+    RESERVATION_NOT_FOUND(HttpStatus.BAD_REQUEST.value(), "예약을 찾을 수 없습니다."),
+    ALREADY_RESERVED(HttpStatus.BAD_REQUEST.value(), "해당 시간은 이미 예약 되어있습니다."),
+    RESERVATION_STATUS_CODE_ERROR(HttpStatus.BAD_REQUEST.value(), "예약 상태 코드에 문제가 발생했습니다."),
+    RESERVATION_TIME_EXCEEDED(HttpStatus.BAD_REQUEST.value(), "예약시간이 초과 되었습니다."),
+    CHECK_IT_10_MINUTES_BEFORE_THE_RESERVATION_TIME(HttpStatus.BAD_REQUEST.value(), "예약시간 10분 전부터 확인 가능합니다."),
+
 
     //review error
 

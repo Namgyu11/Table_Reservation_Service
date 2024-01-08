@@ -24,7 +24,8 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    private TokenProvider tokenProvider;
+
+    private final TokenProvider tokenProvider;
     @Value("${spring.jwt.prefix}")
     private String tokenPrefix;
 
