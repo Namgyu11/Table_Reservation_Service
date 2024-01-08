@@ -38,7 +38,7 @@ public class ReservationController {
     // 예약 승인 및 승인 취소
 
     /**
-     * 예약 승인 및 승인 취소
+     * 예약 승인 및 승인 취소(거절)
      * @param id 해당 예약 고유 ID
      * @param request 수정할 예약 상태
      * @return 수정된 예약 정보(상태 포함)
