@@ -1,10 +1,9 @@
 package com.example.table_reservation_service.store.web;
 
 import com.example.table_reservation_service.store.dto.CreateStore;
-import com.example.table_reservation_service.store.dto.StoreDto;
+import com.example.table_reservation_service.store.dto.StoreList;
 import com.example.table_reservation_service.store.dto.UpdateStore;
 import com.example.table_reservation_service.store.service.StoreService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -73,7 +72,7 @@ public class StoreController {
     @GetMapping("/list")
     @PreAuthorize("hasRole('CUSTOMER')")
     public ResponseEntity<?> searchStoreList(){
-        List<StoreDto> storeDtoList = this.storeService.searchStoreList();
+        List<StoreList> storeDtoList = this.storeService.searchStoreList();
         return ResponseEntity.ok(storeDtoList);
     }
 

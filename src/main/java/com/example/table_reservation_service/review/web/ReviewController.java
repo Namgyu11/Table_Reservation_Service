@@ -1,7 +1,6 @@
 package com.example.table_reservation_service.review.web;
 
 import com.example.table_reservation_service.review.dto.CreateReview;
-import com.example.table_reservation_service.review.dto.ReviewDto;
 import com.example.table_reservation_service.review.dto.UpdateReview;
 import com.example.table_reservation_service.review.service.ReviewService;
 import lombok.RequiredArgsConstructor;

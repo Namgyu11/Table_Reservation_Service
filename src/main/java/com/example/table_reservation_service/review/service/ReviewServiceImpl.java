@@ -3,7 +3,6 @@ package com.example.table_reservation_service.review.service;
 import com.example.table_reservation_service.customer.entity.Customer;
 import com.example.table_reservation_service.customer.repository.CustomerRepository;
 import com.example.table_reservation_service.global.exception.GlobalException;
-import com.example.table_reservation_service.global.type.ErrorCode;
 import com.example.table_reservation_service.reservation.entity.Reservation;
 import com.example.table_reservation_service.reservation.repository.ReservationRepository;
 import com.example.table_reservation_service.reservation.type.ReservationStatus;
@@ -19,8 +18,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 import static com.example.table_reservation_service.global.type.ErrorCode.*;
 
