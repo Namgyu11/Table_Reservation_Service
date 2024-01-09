@@ -7,9 +7,9 @@ public interface ManagerService {
     /**
      * 회원 가입
      */
-    public ManagerDto register(RegisterManager registerManager);
+     ManagerDto register(RegisterManager registerManager);
     /**
      * 유저 일치 확인
      */
-    public ManagerDto memberDetail(Long userId);
+     ManagerDto memberDetail(Long userId);
 }
